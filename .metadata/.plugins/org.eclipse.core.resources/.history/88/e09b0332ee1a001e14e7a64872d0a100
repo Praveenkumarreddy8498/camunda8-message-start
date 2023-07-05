@@ -1,0 +1,26 @@
+package com.camunda.demo;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import io.camunda.zeebe.client.ZeebeClient;
+import io.camunda.zeebe.spring.client.annotation.Deployment;
+
+@SpringBootApplication
+@Deployment(resources = "classpath:message-start.bpmn")
+public class MessageStartAppApplication implements CommandLineRunner {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MessageStartAppApplication.class, args);
+	}
+
+	@Autowired
+	private ZeebeClient client;
+	
+	@Override
+	public void run(String... args) throws Exception {
+	}
+
+}
